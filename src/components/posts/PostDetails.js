@@ -4,6 +4,7 @@ import {firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
 import {Redirect} from 'react-router-dom'
 import moment from './momentConf'
+import PostedBy from './PostedBy'
 
 const PostDetails = (props) => {
     const {post, auth} = props
@@ -18,7 +19,7 @@ const PostDetails = (props) => {
                         <p>{post.content}</p>
                     </div>
                     <div className="card-action gret lighten-4 grey-text">
-                        <div>Posted by {post.authorFirstName + ' ' + post.authorLastName}</div>
+                        <div><PostedBy uid={post.authorId}/></div>
                         <div>{moment(post.createdAt.toDate()).calendar()}</div>
                     </div>
                 </div>

@@ -19,3 +19,16 @@ export const createPost = (post) => {
         })
     }
 }
+
+export const getPostAuthor = (uid) => {
+    return(dispatch, getState, {getFirestore}) => {
+        const firestore = getFirestore()
+        firestore.collection('users').doc(uid).get()
+        .then((userData) => {
+            dispatch({type: 'POST_AUTHOR_SUCCESS', user:userData.data()})
+        })
+        .catch((err) =>{
+            console.log(err.message)
+        })
+    }
+}

@@ -6,6 +6,7 @@ import PostDetails from './components/posts/PostDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import CreatePost from './components/posts/CreatePost'
+import ProfileDetails from './components/profile/ProfileDetails'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/signin' component={SignIn}/>
           <Route path='/signup' component={SignUp}/>
           <Route path='/create' component={CreatePost}/>
+          <Route path='/profile' component={ProfileDetails}/>
         </Switch>
       </div>
     </BrowserRouter>
