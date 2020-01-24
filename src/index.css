@@ -28,3 +28,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-color: hotpink;
   box-shadow: none;
 }
+
+.fa {
+  transition: color 0.3s ease;
+  cursor: pointer;
+}

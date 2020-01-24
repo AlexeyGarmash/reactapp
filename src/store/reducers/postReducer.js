@@ -4,7 +4,8 @@ const initState = {
     posts: [
         
     ],
-    user: null
+    user: null,
+    like: false
 }
 
 const postReducer = (state = initState, action) => {
@@ -24,6 +25,27 @@ const postReducer = (state = initState, action) => {
                 ...state,
                 user: action.user
             }
+        case 'LIKE_SET_SUCCESS':
+            console.log('like set successful')
+            return {
+                ...state,
+                like: action.like
+            }
+
+        case 'LIKE_SET_ERROR':
+            console.log('like set error')
+            return state
+
+        case 'LIKE_OUT_SUCCESS':
+            console.log('like out successful')
+            return {
+                ...state,
+                like: action.like
+            }
+
+        case 'LIKE_OUT_ERROR':
+            console.log('like out error')
+            return state
 
         default:
             return state;

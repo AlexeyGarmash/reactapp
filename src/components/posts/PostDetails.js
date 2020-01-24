@@ -5,12 +5,14 @@ import {compose} from 'redux'
 import {Redirect} from 'react-router-dom'
 import moment from './momentConf'
 import PostedBy from './PostedBy'
+import Likes from './Likes'
 
 const PostDetails = (props) => {
-    const {post, auth} = props
+    const {post, auth, postId} = props
     if(!auth.uid) return <Redirect to='/signin'/>
-    //console.log(post)
-    if(post)
+    //console.log(post)//
+    if(post){
+        console.log(post)
         return (
             <div className="container section post-details">
                 <div className="card z-depth-0">
@@ -21,10 +23,13 @@ const PostDetails = (props) => {
                     <div className="card-action gret lighten-4 grey-text">
                         <div><PostedBy uid={post.authorId}/></div>
                         <div>{moment(post.createdAt.toDate()).calendar()}</div>
+                        <Likes post={post} postId={postId} />
+                            
+                        
                     </div>
                 </div>
             </div>
-    )
+    )}
     else 
     return (
         <div className="container center">
@@ -41,6 +46,7 @@ const mapStateToProps = (state, ownProps) => {
     //console.log(post)
     return {
         post: post,
+        postId: id,
         auth: state.firebase.auth
     }
 }
